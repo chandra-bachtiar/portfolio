@@ -13,20 +13,30 @@ const { profile, socials } = portfolio;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{profile.name}'s Portfolio</title>
+    <meta name="description" content={profile.bio} />
+    <meta
+      name="keywords"
+      content={`portfolio, ${profile.title}, ${profile.name}`}
+    />
   </head>
   <body>
-    <Profile />
-    <Projects />
-
-    <section class="max-w-xl mx-auto p-6">
-      <h2 class="text-xl font-semibold mb-2">Socials</h2>
-      <ul class="space-y-1">
-        {Object.entries(socials).map(([network, url]) => (
-          <li>
-            <a class="text-blue-600 hover:underline" href={url}>{network}</a>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <header>
+      <Profile />
+    </header>
+    <main>
+      <Projects />
+    </main>
+    <footer>
+      <section class="max-w-xl mx-auto p-6">
+        <h2 class="text-xl font-semibold mb-2">Socials</h2>
+        <ul class="space-y-1">
+          {Object.entries(socials).map(([network, url]) => (
+            <li>
+              <a class="text-blue-600 hover:underline" href={url}>{network}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </footer>
   </body>
 </html>
