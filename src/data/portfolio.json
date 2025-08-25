@@ -1,0 +1,24 @@
+{
+  "profile": {
+    "name": "John Doe",
+    "title": "Full Stack Developer",
+    "bio": "Building modern web applications with Astro and Vue."
+  },
+  "projects": [
+    {
+      "name": "Portfolio Website",
+      "description": "Personal portfolio built with Astro.",
+      "url": "https://example.com/portfolio"
+    },
+    {
+      "name": "Todo App",
+      "description": "A simple todo application using Vue.",
+      "url": "https://example.com/todo"
+    }
+  ],
+  "socials": {
+    "github": "https://github.com/johndoe",
+    "twitter": "https://twitter.com/johndoe",
+    "linkedin": "https://linkedin.com/in/johndoe"
+  }
+}
