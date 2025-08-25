@@ -1,0 +1,23 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+import Profile from '../components/Profile.vue';
+import portfolio from '../data/portfolio.json';
+const { profile } = portfolio;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>About - {profile.name}</title>
+    <meta name="description" content={profile.bio} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Profile />
+    </main>
+    <Footer />
+  </body>
+</html>

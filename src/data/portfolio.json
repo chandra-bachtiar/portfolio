@@ -2,7 +2,9 @@
   "profile": {
     "name": "John Doe",
     "title": "Full Stack Developer",
-    "bio": "Building modern web applications with Astro and Vue."
+    "bio": "Building modern web applications with Astro and Vue.",
+    "about": "I am a passionate developer who loves crafting scalable and maintainable web applications. With experience across the stack, I enjoy turning ideas into reality.",
+    "photo": "https://placehold.co/400x400.png"
   },
   "projects": [
     {
@@ -16,9 +18,23 @@
       "url": "https://example.com/todo"
     }
   ],
+  "posts": [
+    {
+      "slug": "getting-started",
+      "title": "Getting Started",
+      "date": "2024-01-01",
+      "excerpt": "An introduction to my journey as a developer.",
+      "content": "This is the first post in my new blog. Stay tuned for more updates on my projects and learning experiences."
+    }
+  ],
   "socials": {
     "github": "https://github.com/johndoe",
     "twitter": "https://twitter.com/johndoe",
     "linkedin": "https://linkedin.com/in/johndoe"
+  },
+  "contact": {
+    "email": "john@example.com",
+    "phone": "+1 234 567 890",
+    "location": "Anytown, Earth"
   }
 }

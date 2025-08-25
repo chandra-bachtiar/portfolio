@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+import portfolio from '../data/portfolio.json';
+const { contact, profile } = portfolio;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact - {profile.name}</title>
+    <meta name="description" content="Get in touch with {profile.name}" />
+  </head>
+  <body>
+    <Header />
+    <main class="max-w-xl mx-auto p-6 space-y-4">
+      <h1 class="text-3xl font-bold mb-4">Contact</h1>
+      <p>Email: <a class="text-blue-600 hover:underline" href={`mailto:${contact.email}`}>{contact.email}</a></p>
+      <p>Phone: {contact.phone}</p>
+      <p>Location: {contact.location}</p>
+      <form class="space-y-4 mt-6">
+        <input type="text" placeholder="Name" class="w-full border rounded px-3 py-2" />
+        <input type="email" placeholder="Email" class="w-full border rounded px-3 py-2" />
+        <textarea placeholder="Message" class="w-full border rounded px-3 py-2"></textarea>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Send</button>
+      </form>
+    </main>
+    <Footer />
+  </body>
+</html>

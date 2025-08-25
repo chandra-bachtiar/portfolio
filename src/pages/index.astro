@@ -1,9 +1,13 @@
 ---
 import '../styles/global.css';
-import Profile from '../components/Profile.vue';
+import Header from '../components/Header.vue';
+import Hero from '../components/Hero.vue';
 import Projects from '../components/Projects.vue';
+import Footer from '../components/Footer.vue';
 import portfolio from '../data/portfolio.json';
-const { profile, socials } = portfolio;
+const { profile, projects, posts } = portfolio;
+const featuredProjects = projects.slice(0, 2);
+const recentPosts = posts.slice(0, 2);
 ---
 
 <html lang="en">
@@ -20,23 +24,37 @@ const { profile, socials } = portfolio;
     />
   </head>
   <body>
-    <header>
-      <Profile />
-    </header>
+    <Header />
     <main>
-      <Projects />
-    </main>
-    <footer>
-      <section class="max-w-xl mx-auto p-6">
-        <h2 class="text-xl font-semibold mb-2">Socials</h2>
-        <ul class="space-y-1">
-          {Object.entries(socials).map(([network, url]) => (
-            <li>
-              <a class="text-blue-600 hover:underline" href={url}>{network}</a>
+      <Hero />
+      <section class="max-w-5xl mx-auto p-6">
+        <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+        <Projects projects={featuredProjects} />
+        <div class="text-right mt-2">
+          <a href="/projects" class="text-blue-600 hover:underline">View all projects →</a>
+        </div>
+      </section>
+      <section class="max-w-5xl mx-auto p-6">
+        <h2 class="text-2xl font-semibold mb-4">Blog</h2>
+        <ul class="space-y-4">
+          {recentPosts.map((post) => (
+            <li class="border-b pb-4">
+              <a href={`/blog/${post.slug}`} class="text-xl text-blue-600 hover:underline">{post.title}</a>
+              <p class="text-sm text-gray-500">{post.date}</p>
+              <p class="text-gray-700">{post.excerpt}</p>
             </li>
           ))}
         </ul>
+        <div class="text-right mt-2">
+          <a href="/blog" class="text-blue-600 hover:underline">Read more posts →</a>
+        </div>
       </section>
-    </footer>
+      <section class="max-w-5xl mx-auto p-6 text-center">
+        <h2 class="text-2xl font-semibold mb-4">Get in Touch</h2>
+        <p class="mb-4">Interested in working together or have a question?</p>
+        <a href="/contact" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Contact Me</a>
+      </section>
+    </main>
+    <Footer />
   </body>
 </html>

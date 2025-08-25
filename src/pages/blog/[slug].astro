@@ -1,0 +1,31 @@
+---
+import '../../styles/global.css';
+import Header from '../../components/Header.vue';
+import Footer from '../../components/Footer.vue';
+import portfolio from '../../data/portfolio.json';
+
+export function getStaticPaths() {
+  const { posts } = portfolio;
+  return posts.map((p) => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+const { profile } = portfolio;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{post.title} - {profile.name}</title>
+    <meta name="description" content={post.excerpt} />
+  </head>
+  <body>
+    <Header />
+    <main class="max-w-3xl mx-auto p-6 space-y-4">
+      <h1 class="text-3xl font-bold">{post.title}</h1>
+      <p class="text-sm text-gray-500">{post.date}</p>
+      <p class="text-gray-700">{post.content}</p>
+    </main>
+    <Footer />
+  </body>
+</html>
