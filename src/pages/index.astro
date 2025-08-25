@@ -1,7 +1,9 @@
 ---
 import '../styles/global.css';
+import Profile from '../components/Profile.vue';
+import Projects from '../components/Projects.vue';
 import portfolio from '../data/portfolio.json';
-const { profile, projects, socials } = portfolio;
+const { profile, socials } = portfolio;
 ---
 
 <html lang="en">
@@ -13,22 +15,18 @@ const { profile, projects, socials } = portfolio;
     <title>{profile.name}'s Portfolio</title>
   </head>
   <body>
-    <h1 class="text-2xl font-bold">{profile.name}</h1>
-    <p>{profile.title}</p>
-    <p>{profile.bio}</p>
+    <Profile />
+    <Projects />
 
-    <h2 class="mt-4 text-xl font-semibold">Projects</h2>
-    <ul>
-      {projects.map(project => (
-        <li><a href={project.url}>{project.name}</a> - {project.description}</li>
-      ))}
-    </ul>
-
-    <h2 class="mt-4 text-xl font-semibold">Socials</h2>
-    <ul>
-      {Object.entries(socials).map(([network, url]) => (
-        <li><a href={url}>{network}</a></li>
-      ))}
-    </ul>
+    <section class="max-w-xl mx-auto p-6">
+      <h2 class="text-xl font-semibold mb-2">Socials</h2>
+      <ul class="space-y-1">
+        {Object.entries(socials).map(([network, url]) => (
+          <li>
+            <a class="text-blue-600 hover:underline" href={url}>{network}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
   </body>
 </html>
